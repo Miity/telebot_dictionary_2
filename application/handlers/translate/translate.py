@@ -1,13 +1,12 @@
 from multiprocessing.connection import wait
 from aiogram import types
 from aiogram.dispatcher.storage import FSMContext
-from loader import dp, bot
+from application.loader import dp, bot
 from googletrans import Translator
 
-from keyboards.inline.keyboards import keyboard
-from states.states import In_dictionary
-
-from data.database.commands import add_word_to_dict, find_dict
+from application.keyboards.inline.keyboards import keyboard
+from application.states.states import In_dictionary
+from application_data.database.commands import add_word_to_dict, find_dict
 
 
 @dp.message_handler(state=In_dictionary.start)
@@ -62,6 +61,6 @@ async def change_translate(message: types.Message, state:FSMContext):
 
 @dp.message_handler()
 async def tarnslate(message: types.Message):
-    tr = Translator
-    await message.answer(text = '{} --> {}'.format(tr.translate(message.text).text))
+    tr = Translator()
+    await message.answer(text = '{} --> {}'.format(message.text,tr.translate(message.text).text))
     await bot.delete_message(message.from_user.id, message.message_id)

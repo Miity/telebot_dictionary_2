@@ -3,12 +3,12 @@ from copy import deepcopy
 from aiogram import types
 from aiogram.dispatcher.storage import FSMContext
 from aiogram.dispatcher.filters import Text
-from loader import dp
 
-from keyboards.inline.keyboards import start_ikb, dict_contr_ikb
-from data.database.commands import show_dicts, find_dict
-from data.database.commands import find_or_new_user
-from states.states import In_dictionary
+from application.loader import dp
+from application.keyboards.inline.keyboards import start_ikb, dict_contr_ikb
+from application_data.database.commands import show_dicts, find_dict
+from application_data.database.commands import find_or_new_user
+from application.states.states import In_dictionary
 
 
 @dp.message_handler(commands='cancel', state="*")

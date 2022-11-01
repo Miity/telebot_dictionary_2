@@ -1,11 +1,11 @@
 from copy import deepcopy
 import json
 from aiogram import types
-from loader import dp, bot
 from aiogram.dispatcher.storage import FSMContext
-from states.states import Create_dictionary
-from keyboards.inline.keyboards import choose_lang_ikb,start_ikb
-from data.database.commands import add_dict, find_or_new_user, show_dicts
+from application.loader import dp, bot
+from application.states.states import Create_dictionary
+from application.keyboards.inline.keyboards import choose_lang_ikb,start_ikb
+from application_data.database.commands import add_dict, find_or_new_user, show_dicts
 
 
 @dp.callback_query_handler(lambda callback: callback.data=='create_dict')

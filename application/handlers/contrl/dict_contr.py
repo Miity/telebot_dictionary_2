@@ -1,10 +1,10 @@
-from email import message
+import json
 from aiogram import types
 from aiogram.dispatcher import FSMContext
-from loader import dp
-from keyboards.inline.keyboards import gen_words_ikb, word_edit_ikb
-from states.states import In_dictionary
-import json
+from application.loader import dp
+from application.keyboards.inline.keyboards import gen_words_ikb, word_edit_ikb
+from application.states.states import In_dictionary
+
 
 
 @dp.callback_query_handler(text='delete_dict', state=In_dictionary.start)
